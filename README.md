@@ -1,4 +1,3 @@
-# job4j_threads
 # Dream Job
 
 [![Build Status](https://app.travis-ci.com/mikhail43435/job4j_dreamjob.svg?branch=main)](https://app.travis-ci.com/github/mikhail43435/job4j_dreamjob)
