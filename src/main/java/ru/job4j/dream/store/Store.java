@@ -40,8 +40,14 @@ public class Store {
     }
 
     public void savePost(Post post) {
-        post.setId(POST_ID.incrementAndGet());
+        if (post.getId() == 0) {
+            post.setId(POST_ID.incrementAndGet());
+        }
         postsMap.put(post.getId(), post);
+    }
+
+    public Post findById(int id) {
+        return postsMap.get(id);
     }
 
     public void saveCandidate(Candidate candidate) {
