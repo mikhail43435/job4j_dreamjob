@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="ru.job4j.dream.store.Store" %>
 <%@ page import="ru.job4j.dream.model.Candidate" %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Работа мечты</title>
 <!doctype html>
 <html lang="en">
 <head>
@@ -53,7 +55,12 @@
                     <tbody>
                     <% for (Candidate can : Store.instOf().findAllCandidates()) { %>
                     <tr>
-                        <td><%= can.getName() %></td>
+                        <td>
+                            <a href="<%=request.getContextPath()%>/editCondidate.jsp?id=<%=can.getId()%>">
+                                <i class="fa fa-edit mr-3"></i>
+                            </a>
+                            <%=can.getName()%>
+                        </td>
                     </tr>
                     <% } %>
                     </tbody>
