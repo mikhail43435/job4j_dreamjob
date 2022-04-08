@@ -39,8 +39,13 @@ public class Store {
         return candidatesMap.values();
     }
 
-    public void save(Post post) {
+    public void savePost(Post post) {
         post.setId(POST_ID.incrementAndGet());
         postsMap.put(post.getId(), post);
+    }
+
+    public void saveCandidate(Candidate candidate) {
+        candidate.setId(POST_ID.incrementAndGet());
+        candidatesMap.put(candidate.getId(), candidate);
     }
 }
