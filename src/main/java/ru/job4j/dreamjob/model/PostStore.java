@@ -23,4 +23,12 @@ public class PostStore {
     public Collection<Post> findAll() {
         return posts.values();
     }
+
+    public int getStoreSize() {
+        return posts.size();
+    }
+
+    public void add(Post post) {
+        posts.put(post.getId(), post);
+    }
 }
