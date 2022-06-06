@@ -8,6 +8,7 @@ public class Post {
     private String name;
     private String description;
     private LocalDate created;
+    private LocalDate updated;
 
     public Post() {
     }
@@ -17,11 +18,12 @@ public class Post {
         this.name = name;
     }
 
-    public Post(int id, String name, String description, LocalDate created) {
+    public Post(int id, String name, String description, LocalDate created, LocalDate updated) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.created = created;
+        this.updated = updated;
     }
 
     public void setId(int id) {
@@ -42,6 +44,14 @@ public class Post {
 
     public int getId() {
         return id;
+    }
+
+    public LocalDate getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(LocalDate updated) {
+        this.updated = updated;
     }
 
     public String getName() {
