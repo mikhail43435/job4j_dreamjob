@@ -31,18 +31,6 @@ public class PostController {
         return "addPost";
     }
 
-/*
-    @PostMapping("/createPost")
-    public String createPost(HttpServletRequest req) {
-        String name = req.getParameter("name");
-        String description = req.getParameter("description");
-        System.out.println(name);
-        store.add(new Post(store.getStoreSize() + 1, name, description, "today"));
-        System.out.println(store.findAll().size());
-        return "redirect:/posts";
-    }
-*/
-
     @PostMapping("/createPost")
     public String createPost(@ModelAttribute Post post) {
         store.add(post);
@@ -57,7 +45,7 @@ public class PostController {
 
     @PostMapping("/updatePost")
     public String updatePost(@ModelAttribute Post post) {
-        store.updatePostName(post);
+        store.updatePostNameAndDescription(post);
         return "redirect:/posts";
     }
 }

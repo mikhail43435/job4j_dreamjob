@@ -42,9 +42,14 @@ public class PostStore {
         posts.put(post.getId(), post);
     }
 
-    public void updatePostName(Post post) {
+    public void updatePostNameAndDescription(Post post) {
         Post postToUpdate = findById(post.getId());
+        if (postToUpdate == null) {
+            System.out.println("LOG: null post to update has been found");
+            return;
+        }
         postToUpdate.setName(post.getName());
+        postToUpdate.setDescription(post.getDescription());
         postToUpdate.setUpdated(LocalDate.now());
     }
 }
