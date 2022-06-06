@@ -12,8 +12,8 @@ public class PostStore {
 
     private PostStore() {
         posts.put(1, new Post(1, "Junior Java Job", "great job", "2022/01/01"));
-        posts.put(2, new Post(2, "Middle Java Job","wonderful job", "2022/02/04"));
-        posts.put(3, new Post(3, "Senior Java Job","nice job", "2022/05/02"));
+        posts.put(2, new Post(2, "Middle Java Job", "wonderful job", "2022/02/04"));
+        posts.put(3, new Post(3, "Senior Java Job", "nice job", "2022/05/02"));
     }
 
     public static PostStore instOf() {

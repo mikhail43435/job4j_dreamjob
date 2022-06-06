@@ -16,6 +16,13 @@ public class Post {
         this.name = name;
     }
 
+    public Post(int id, String name, String description, String created) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.created = created;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -36,17 +43,14 @@ public class Post {
         return created;
     }
 
-    public Post(int id, String name, String description, String created) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.created = created;
-    }
-
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Post post = (Post) o;
         return id == post.id;
     }

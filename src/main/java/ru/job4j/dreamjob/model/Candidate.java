@@ -9,6 +9,11 @@ public class Candidate {
     private String description;
     private String created;
 
+    public Candidate(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Candidate(int id, String name, String description, String created) {
         this.id = id;
         this.name = name;
@@ -18,11 +23,6 @@ public class Candidate {
 
     public int getId() {
         return id;
-    }
-
-    public Candidate(int id, String name) {
-        this.id = id;
-        this.name = name;
     }
 
     public String getName() {
@@ -39,8 +39,12 @@ public class Candidate {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Candidate candidate = (Candidate) o;
         return id == candidate.id;
     }
