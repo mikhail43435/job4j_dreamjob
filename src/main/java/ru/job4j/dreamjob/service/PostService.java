@@ -1,24 +1,18 @@
 package ru.job4j.dreamjob.service;
 
-import ru.job4j.dreamjob.controller.PostController;
+import org.springframework.stereotype.Service;
 import ru.job4j.dreamjob.model.Post;
 import ru.job4j.dreamjob.model.PostStore;
 
 import java.util.Collection;
 
+@Service
 public class PostService {
 
-    private final PostStore store = PostStore.instOf();
+    private final PostStore store;
 
-    private PostService() {
-    }
-
-    private static class SingletonHolder {
-        private static final PostService INST = new PostService();
-    }
-
-    public static PostService instanceOf() {
-        return SingletonHolder.INST;
+    public PostService(PostStore store) {
+        this.store = store;
     }
 
     public Post findById(int id) {
