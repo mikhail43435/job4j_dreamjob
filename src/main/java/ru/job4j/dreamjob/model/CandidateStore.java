@@ -1,11 +1,14 @@
 package ru.job4j.dreamjob.model;
 
+import net.jcip.annotations.ThreadSafe;
+
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@ThreadSafe
 public class CandidateStore {
 
     private static final AtomicInteger CURRENT_ID = new AtomicInteger();

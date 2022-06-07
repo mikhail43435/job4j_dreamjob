@@ -1,5 +1,6 @@
 package ru.job4j.dreamjob.model;
 
+import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -10,10 +11,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
+@ThreadSafe
 public class PostStore {
 
     private static final AtomicInteger CURRENT_ID = new AtomicInteger();
-
     private final Map<Integer, Post> store = new ConcurrentHashMap<>();
 
     private PostStore() {
