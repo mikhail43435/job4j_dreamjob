@@ -45,7 +45,7 @@ public class PostController {
 
     @PostMapping("/updatePost")
     public String updatePost(@ModelAttribute Post post) {
-        store.updatePostNameAndDescription(post);
+        store.update(post);
         return "redirect:/posts";
     }
 }

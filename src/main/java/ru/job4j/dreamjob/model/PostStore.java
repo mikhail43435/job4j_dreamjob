@@ -12,14 +12,14 @@ public class PostStore {
     private static final AtomicInteger CURRENT_ID = new AtomicInteger();
     private static final PostStore INST = new PostStore();
 
-    private final Map<Integer, Post> posts = new ConcurrentHashMap<>();
+    private final Map<Integer, Post> store = new ConcurrentHashMap<>();
 
     private PostStore() {
-        posts.put(1, new Post(1, "Junior Java Job", "great job",
+        store.put(1, new Post(1, "Junior Java Job", "great job",
                 LocalDate.of(2022, Month.JANUARY, 1), null));
-        posts.put(2, new Post(2, "Middle Java Job", "wonderful job",
+        store.put(2, new Post(2, "Middle Java Job", "wonderful job",
                 LocalDate.of(2022, Month.JANUARY, 1), null));
-        posts.put(3, new Post(3, "Senior Java Job", "nice job",
+        store.put(3, new Post(3, "Senior Java Job", "nice job",
                 LocalDate.of(2022, Month.JANUARY, 1), null));
         CURRENT_ID.set(3);
     }
@@ -29,20 +29,20 @@ public class PostStore {
     }
 
     public Post findById(int id) {
-        return posts.get(id);
+        return store.get(id);
     }
 
     public Collection<Post> findAll() {
-        return posts.values();
+        return store.values();
     }
 
     public void add(Post post) {
         post.setId(CURRENT_ID.incrementAndGet());
         post.setCreated(LocalDate.now());
-        posts.put(post.getId(), post);
+        store.put(post.getId(), post);
     }
 
-    public void updatePostNameAndDescription(Post post) {
+    public void update(Post post) {
         Post postToUpdate = findById(post.getId());
         if (postToUpdate == null) {
             System.out.println("LOG: null post to update has been found");
