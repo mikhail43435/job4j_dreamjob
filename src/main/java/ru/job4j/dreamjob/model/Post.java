@@ -10,6 +10,7 @@ public class Post {
     private LocalDate created;
     private LocalDate updated;
     private boolean visible;
+    private City city;
 
     public Post() {
     }
@@ -73,6 +74,14 @@ public class Post {
 
     public void setVisible(boolean visible) {
         this.visible = visible;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public City getCity() {
+        return city;
     }
 
     @Override
