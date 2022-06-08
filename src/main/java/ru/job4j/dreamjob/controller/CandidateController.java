@@ -47,7 +47,7 @@ public class CandidateController {
 
     @PostMapping("/updateCandidate")
     public String updateCandidate(@ModelAttribute Candidate candidate) {
-        store.updateCandidateNameAndDescription(candidate);
+        store.update(candidate);
         return "redirect:/candidates";
     }
 }
