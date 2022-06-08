@@ -9,6 +9,7 @@ public class Post {
     private String description;
     private LocalDate created;
     private LocalDate updated;
+    private boolean visible;
 
     public Post() {
     }
@@ -64,6 +65,14 @@ public class Post {
 
     public LocalDate getCreated() {
         return created;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 
     @Override

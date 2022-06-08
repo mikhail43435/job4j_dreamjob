@@ -23,7 +23,8 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Работа мечты</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -43,6 +44,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Имя</th>
+                <th scope="col">Опубликовано</th>
                 <th scope="col">Описание</th>
                 <th scope="col">Создано</th>
                 <th scope="col">Обновлено</th>
@@ -51,14 +53,17 @@
             <tbody>
             <tr th:each="post: ${posts}">
                 <td th:text="${post.id}"></td>
-                <td>
-                    <a th:href="@{|/updatePost/${post.id}|}">
-                        <i class="fa fa-edit"></i>
-                    </a>
-                    <span th:text="${post.name}"></span>
-                <td th:text="${post.description}" />
-                <td th:text="${post.created}" />
-                <td th:text="${post.updated}" />
+                <td><a th:href="@{|/updatePost/${post.id}|}">
+                    <i class="fa fa-edit"></i></a>
+                    <span th:text="${post.name}"></span></td>
+                <td><span th:if="${post.visible}">
+                    <i class="fa fa-check-square-o"></i></span>
+                    <span th:if="${!post.visible}">
+                        <i class="fa fa-square-o"></i>
+                    </span></td>
+                <td th:text="${post.description}"/>
+                <td th:text="${post.created}"/>
+                <td th:text="${post.updated}"/>
                 </td>
             </tr>
             </tbody>
