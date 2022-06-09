@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.job4j.dreamjob.model.Post;
 import ru.job4j.dreamjob.model.PostStore;
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 @Service
@@ -28,11 +29,14 @@ public class PostService {
     }
 
     public void add(Post post) {
+        post.setCreated(LocalDate.now());
         updateCity(post);
         store.add(post);
     }
 
     public void update(Post post) {
+        post.setCreated(store.findById(post.getId()).getCreated());
+        post.setUpdated(LocalDate.now());
         updateCity(post);
         store.update(post);
     }

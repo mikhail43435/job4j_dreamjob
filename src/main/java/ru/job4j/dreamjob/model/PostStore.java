@@ -2,6 +2,7 @@ package ru.job4j.dreamjob.model;
 
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
+import ru.job4j.dreamjob.service.CityService;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -18,12 +19,13 @@ public class PostStore {
     private final Map<Integer, Post> store = new ConcurrentHashMap<>();
 
     private PostStore() {
+        CityService cityService = new CityService();
         store.put(1, new Post(1, "Junior Java Job", "great job",
-                LocalDate.of(2022, Month.JANUARY, 1), null));
+                LocalDate.of(2022, Month.JANUARY, 1), null, cityService.findById(0)));
         store.put(2, new Post(2, "Middle Java Job", "wonderful job",
-                LocalDate.of(2022, Month.JANUARY, 1), null));
+                LocalDate.of(2022, Month.JANUARY, 1), null, cityService.findById(0)));
         store.put(3, new Post(3, "Senior Java Job", "nice job",
-                LocalDate.of(2022, Month.JANUARY, 1), null));
+                LocalDate.of(2022, Month.JANUARY, 1), null, cityService.findById(0)));
         CURRENT_ID.set(3);
     }
 

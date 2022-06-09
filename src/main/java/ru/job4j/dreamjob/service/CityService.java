@@ -10,9 +10,10 @@ import java.util.*;
 @ThreadSafe
 public class CityService {
 
-    private final Map<Integer, City> store = new HashMap<Integer, City>();
+    private final Map<Integer, City> store = new HashMap<>();
 
     public CityService() {
+        store.put(0, new City(0, "<>"));
         store.put(1, new City(1, "Москва"));
         store.put(2, new City(2, "СПб"));
         store.put(3, new City(3, "Екб"));
