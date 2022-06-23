@@ -13,10 +13,10 @@ public class CityService {
     private final Map<Integer, City> store = new HashMap<>();
 
     public CityService() {
-        store.put(0, new City(0, "<>"));
-        store.put(1, new City(1, "Москва"));
-        store.put(2, new City(2, "СПб"));
-        store.put(3, new City(3, "Екб"));
+        store.put(0, new City(1, "<>"));
+        store.put(1, new City(2, "Москва"));
+        store.put(2, new City(3, "СПб"));
+        store.put(3, new City(4, "Екб"));
     }
 
     public List<City> getAllCities() {
@@ -24,6 +24,6 @@ public class CityService {
     }
 
     public City findById(int id) {
-        return store.get(id);
+        return store.get(id - 1);
     }
 }

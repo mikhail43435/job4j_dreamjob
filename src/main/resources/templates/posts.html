@@ -43,7 +43,7 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Имя</th>
+                <th scope="col">Заголовок</th>
                 <th scope="col">Опубликовано</th>
                 <th scope="col">Город</th>
                 <th scope="col">Описание</th>
@@ -54,16 +54,13 @@
             <tbody>
             <tr th:each="post: ${posts}">
                 <td th:text="${post.id}"></td>
-
                 <td><a th:href="@{|/updatePost/${post.id}|}">
                     <i class="fa fa-edit"></i></a>
                     <span th:text="${post.name}"></span></td>
-
                 <td><span th:if="${post.visible}">
                     <i class="fa fa-check-square-o"></i></span>
                     <span th:if="${!post.visible}">
                         <i class="fa fa-square-o"></i></span></td>
-
                 <td th:text="${post.city?.getName()}"/>
                 <td th:text="${post.description}"/>
                 <td th:text="${post.created}"/>

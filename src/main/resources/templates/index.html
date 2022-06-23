@@ -39,29 +39,24 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Заголовок</th>
+                <th scope="col">Город</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Создано</th>
+                <th scope="col">Обновлено</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+            <tr th:each="post: ${posts}">
+                <td th:text="${post.id}"></td>
+                <td><a th:href="@{|/updatePost/${post.id}|}">
+                    <i class="fa fa-edit"></i></a>
+                    <span th:text="${post.name}"></span></td>
+                <td th:text="${post.city?.getName()}"/>
+                <td th:text="${post.description}"/>
+                <td th:text="${post.created}"/>
+                <td th:text="${post.updated}"/>
+                </td>
             </tr>
             </tbody>
         </table>

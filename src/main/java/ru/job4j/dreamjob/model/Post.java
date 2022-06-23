@@ -20,13 +20,14 @@ public class Post {
         this.name = name;
     }
 
-    public Post(int id, String name, String description,
-                LocalDate created, LocalDate updated, City city) {
+    public Post(int id, String name, String description, LocalDate created,
+                LocalDate updated, boolean visible, City city) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.created = created;
         this.updated = updated;
+        this.visible = visible;
         this.city = city;
     }
 
