@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
+        <connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
+            <dataSource class="com.alibaba.druid.pool.DruidDataSource">
+                <driverClassName>org.postgresql.Driver</driverClassName>
+                <url>jdbc:postgresql://127.0.0.1:5432/dreamjob</url>
+                <username>postgres</username>
+                <password>password</password>
+            </dataSource>
+        </connectionSource>
+    </appender>
+    <root level="error">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="DB"/>
+    </root>
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="DB"/>
+    </root>
+</configuration>

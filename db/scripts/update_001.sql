@@ -1,6 +1,3 @@
-drop table if exists post;
-drop table if exists cities;
-
 create table if not exists cities (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50)
@@ -21,4 +18,12 @@ create table if not exists post (
                       is_published boolean,
                       date_created date,
                       date_updated date
+);
+
+create table if not exists log4j_messages (
+                      id SERIAL PRIMARY KEY,
+                      message TEXT,
+                      class TEXT,
+                      priority TEXT,
+                      log_date TIMESTAMP
 );

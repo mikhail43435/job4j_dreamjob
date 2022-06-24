@@ -2,6 +2,7 @@ package ru.job4j.dreamjob.store;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.stereotype.Repository;
+import ru.job4j.dreamjob.service.LoggerService;
 import ru.job4j.dreamjob.model.Post;
 import ru.job4j.dreamjob.service.CityService;
 
@@ -41,7 +42,7 @@ public class PostDBStore {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            LoggerService.LOGGER.error("Exception in PostDBStore.findAll method", e);
         }
         return posts;
     }
@@ -65,7 +66,7 @@ public class PostDBStore {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            LoggerService.LOGGER.error("Exception in PostDBStore.add method", e);
         }
         return post;
     }
@@ -84,7 +85,7 @@ public class PostDBStore {
             ps.setInt(7, post.getId());
             ps.execute();
         } catch (Exception e) {
-            e.printStackTrace();
+            LoggerService.LOGGER.error("Exception in PostDBStore.update method", e);
         }
     }
 
@@ -106,7 +107,7 @@ public class PostDBStore {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            LoggerService.LOGGER.error("Exception in PostDBStore.findById method", e);
         }
         return null;
     }

@@ -4,6 +4,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import ru.job4j.dreamjob.service.LoggerService;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -49,5 +50,6 @@ public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
         System.out.println("Go to http://localhost:8080/index");
+        LoggerService.LOGGER.info("System started");
     }
 }
