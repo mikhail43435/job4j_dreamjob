@@ -1,8 +1,10 @@
---Create a table for Candidate info
-create table if not exists candidate (
-                      id SERIAL PRIMARY KEY,
+--Create a table for Post info
+create table if not exists post (
+                     id SERIAL PRIMARY KEY,
                       name TEXT,
+                      city int references cities(id),
                       description TEXT,
+                      is_published boolean,
                       date_created date,
-                      photo_data bytea
+                      date_updated date
 );

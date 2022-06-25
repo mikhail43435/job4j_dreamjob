@@ -1,10 +1,12 @@
---Create a table for Post info
-create table if not exists post (
-                     id SERIAL PRIMARY KEY,
-                      name TEXT,
-                      city int references cities(id) not null,
-                      description TEXT,
-                      is_published boolean,
-                      date_created date,
-                      date_updated date
+--Create a table for Cities info
+create table if not exists cities (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50)
 );
+--Fill table for Cities
+insert into cities(name)
+values
+        ('<>'),
+        ('Москва'),
+        ('СПб'),
+        ('Екб');

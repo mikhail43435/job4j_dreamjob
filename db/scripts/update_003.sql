@@ -1,12 +1,8 @@
---Create a table for Cities info
-create table if not exists cities (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(50)
+--Create a table for Candidate info
+create table if not exists candidate (
+                      id SERIAL PRIMARY KEY,
+                      name TEXT,
+                      description TEXT,
+                      date_created date,
+                      photo_data bytea
 );
---Fill table for Cities
-insert into cities(name)
-values
-        ('<>'),
-        ('Москва'),
-        ('СПб'),
-        ('Екб');
