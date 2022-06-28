@@ -16,3 +16,5 @@ Dream Job - приложение биржа работы.
 Сборка проекта осуществляется с помощью Maven:
 `mvn install`
 
+## Использованные технлогии. 
+`java` `spring` `postgresql` `liquidbase` `h2` `logback` `slf4j` `assertj`
