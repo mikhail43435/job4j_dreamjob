@@ -24,7 +24,7 @@ public class PostDBStoreTest {
     @Test
     void whenCreatePost() {
         Post post = new Post(0, "Junior Java Job", "great job",
-                LocalDate.of(2022, Month.JANUARY, 1), 
+                LocalDate.of(2022, Month.JANUARY, 1),
                 null, false, new City(1, "Москва"));
         store.add(post);
         Post postInDb = store.findById(post.getId());
@@ -34,11 +34,11 @@ public class PostDBStoreTest {
         assertThat(postInDb.getUpdated()).isEqualTo(post.getUpdated());
         assertThat(postInDb.getCity()).isEqualTo(post.getCity());
     }
-    
+
     @Test
     void whenUpdatePost() {
         Post post1 = new Post(0, "Junior Java Job", "great job",
-                LocalDate.of(2022, Month.JANUARY, 1), 
+                LocalDate.of(2022, Month.JANUARY, 1),
                 null, false, new City(1, "Москва"));
         int addedPostId = (store.add(post1).getId());
         Post post2 = new Post(addedPostId, "Junior Java Job2", "great job2",
