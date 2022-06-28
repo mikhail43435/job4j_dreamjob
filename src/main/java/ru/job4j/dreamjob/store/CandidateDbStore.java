@@ -60,7 +60,7 @@ public class CandidateDbStore {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            LoggerService.LOGGER.error("Exception in CandidateDbStore.add method", e);
         }
         return candidate;
     }
