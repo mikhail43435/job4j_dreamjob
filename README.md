@@ -17,4 +17,4 @@ Dream Job - приложение биржа работы.
 `mvn install`
 
 ## Использованные технлогии. 
-`java` `spring` `postgresql` `liquidbase` `h2` `logback` `slf4j` `assertj`
+`java` `spring` `postgresql` `liquidbase` `h2` `logback` `slf4j` `assertj` `mockito`
