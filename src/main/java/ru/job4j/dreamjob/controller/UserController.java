@@ -42,4 +42,21 @@ public class UserController {
     public String successRegistration(Model model) {
         return "successRegistration";
     }
+
+    @GetMapping("/loginPage")
+    public String loginPage(Model model,
+                            @RequestParam(name = "fail", required = false) boolean fail) {
+        model.addAttribute("fail", fail);
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String login(@ModelAttribute User user) {
+        Optional<User> userDb = userService.findUserByEmailAndPwd(
+                user.getEmail(), user.getPassword());
+        if (userDb.isEmpty()) {
+            return "redirect:/loginPage?fail=true";
+        }
+        return "redirect:/index";
+    }
 }
