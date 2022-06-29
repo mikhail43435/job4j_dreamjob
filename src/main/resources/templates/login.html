@@ -39,6 +39,14 @@
                         <input type="text" class="form-control" name="password">
                     </div>
                     <button type="submit" class="btn btn-primary">Войти</button>
+                    <br>
+                </form>
+                <br>
+                <form th:action="@{/registrationPage}" method="GET">
+                    <div class="form-group">
+                        <label>Новый пользователь?</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
                 </form>
             </div>
         </div>

@@ -13,7 +13,10 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+
+import static ru.job4j.dreamjob.util.UserHandler.handleUserOfCurrentSession;
 
 @Controller
 @ThreadSafe
@@ -26,19 +29,22 @@ public class CandidateController {
     }
 
     @GetMapping("/candidates")
-    public String posts(Model model) {
+    public String posts(Model model, HttpSession session) {
         model.addAttribute("candidates", candidateService.findAll());
+        model.addAttribute("user", handleUserOfCurrentSession(session));
         return "candidates";
     }
 
     @GetMapping("/addCandidate")
-    public String addCandidate(Model model) {
+    public String addCandidate(Model model, HttpSession session) {
         model.addAttribute("candidate", new Candidate(0, "Заполните поле"));
+        model.addAttribute("user", handleUserOfCurrentSession(session));
         return "addCandidate";
     }
 
     @GetMapping("/formAddCandidate")
-    public String formAddCandidate(Model model) {
+    public String formAddCandidate(Model model, HttpSession session) {
+        model.addAttribute("user", handleUserOfCurrentSession(session));
         return "addCandidate";
     }
 
@@ -51,14 +57,15 @@ public class CandidateController {
     }
 
     @GetMapping("/updateCandidate/{candidateId}")
-    public String formUpdateCandidate(Model model, @PathVariable("candidateId") int id) {
+    public String formUpdateCandidate(Model model, @PathVariable("candidateId") int id, HttpSession session) {
         model.addAttribute("candidate", candidateService.findById(id));
+        model.addAttribute("user", handleUserOfCurrentSession(session));
         return "updateCandidate";
     }
 
     @PostMapping("/updateCandidate")
     public String updateCandidate(@ModelAttribute Candidate candidate,
-                                  @RequestParam("file") MultipartFile file) throws IOException {
+                                  @RequestParam("file") MultipartFile file, HttpSession session) throws IOException {
         candidate.setPhoto(file.getBytes());
         candidateService.update(candidate);
         return "redirect:/candidates";
