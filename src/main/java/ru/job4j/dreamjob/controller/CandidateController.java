@@ -57,7 +57,8 @@ public class CandidateController {
     }
 
     @GetMapping("/updateCandidate/{candidateId}")
-    public String formUpdateCandidate(Model model, @PathVariable("candidateId") int id, HttpSession session) {
+    public String formUpdateCandidate(Model model, @PathVariable("candidateId") int id,
+                                      HttpSession session) {
         model.addAttribute("candidate", candidateService.findById(id));
         model.addAttribute("user", handleUserOfCurrentSession(session));
         return "updateCandidate";
@@ -65,7 +66,8 @@ public class CandidateController {
 
     @PostMapping("/updateCandidate")
     public String updateCandidate(@ModelAttribute Candidate candidate,
-                                  @RequestParam("file") MultipartFile file, HttpSession session) throws IOException {
+                                  @RequestParam("file") MultipartFile file,
+                                  HttpSession session) throws IOException {
         candidate.setPhoto(file.getBytes());
         candidateService.update(candidate);
         return "redirect:/candidates";
