@@ -42,12 +42,6 @@ public class CandidateController {
         return "addCandidate";
     }
 
-/*    @PostMapping("/createCandidate")
-    public String createCandidate(@ModelAttribute Candidate candidate) {
-        candidateService.add(candidate);
-        return "redirect:/candidates";
-    }*/
-
     @PostMapping("/createCandidate")
     public String createCandidate(@ModelAttribute Candidate candidate,
                                   @RequestParam("file") MultipartFile file) throws IOException {

@@ -36,11 +36,6 @@ public class PostController {
         return "addPost";
     }
 
-    @GetMapping("/formAddPost")
-    public String formAddPost(Model model) {
-        return "addPost";
-    }
-
     @PostMapping("/createPost")
     public String createPost(@ModelAttribute Post post) {
         postService.add(post);
