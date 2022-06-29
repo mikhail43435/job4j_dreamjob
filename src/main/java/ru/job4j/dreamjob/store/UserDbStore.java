@@ -8,6 +8,7 @@ import ru.job4j.dreamjob.service.LoggerService;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Optional;
 
 @Repository
@@ -20,6 +21,7 @@ public class UserDbStore {
     }
 
     public Optional<User> add(User user) {
+        Optional<User> result = Optional.empty();
         String param = "INSERT INTO users(email, password) VALUES (?,?)";
         try (Connection cn = pool.getConnection();
              PreparedStatement ps =
@@ -31,10 +33,19 @@ public class UserDbStore {
                 if (id.next()) {
                     user.setId(id.getInt(1));
                 }
+                result = Optional.of(user);
             }
         } catch (Exception e) {
+            Throwable rootCause = com.google.common.base.Throwables.getRootCause(e);
+            if (rootCause instanceof SQLException) {
+                if ("23505".equals(((SQLException) rootCause).getSQLState())) {
+                    LoggerService.LOGGER.error("User exist exception in UserDbStore.add method   "
+                            + " user data: email <" + user.getEmail() + ">");
+                    return result;
+                }
+            }
             LoggerService.LOGGER.error("Exception in UserDbStore.add method", e);
         }
-        return user.getId() == 0 ? Optional.empty() : Optional.of(user);
+        return result;
     }
 }
