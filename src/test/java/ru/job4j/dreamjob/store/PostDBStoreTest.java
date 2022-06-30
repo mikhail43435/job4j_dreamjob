@@ -12,7 +12,7 @@ import java.time.Month;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class PostDBStoreTest {
+class PostDBStoreTest {
 
     private PostDBStore store;
 
