@@ -42,12 +42,6 @@ public class PostController {
         return "addPost";
     }
 
-    @PostMapping("/createPost")
-    public String createPost(@ModelAttribute Post post) {
-        postService.add(post);
-        return "redirect:/posts";
-    }
-
     @GetMapping("/updatePost/{postId}")
     public String formUpdatePost(Model model, @PathVariable("postId") int id, HttpSession session) {
         model.addAttribute("post", postService.findById(id));
