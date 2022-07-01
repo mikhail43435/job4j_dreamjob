@@ -13,10 +13,9 @@ import java.time.Month;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class PostDBStoreTest {
-    private PostDBStore store;
+    private final PostDBStore store;
 
-    @BeforeEach
-    void initObjects() {
+    public PostDBStoreTest() {
         store = new PostDBStore(new Main().loadPool(), new CityService());
     }
 
