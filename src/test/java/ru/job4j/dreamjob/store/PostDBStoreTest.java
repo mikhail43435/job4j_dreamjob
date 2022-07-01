@@ -12,14 +12,10 @@ import java.time.Month;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class PostDBStoreTest {
-    private final PostDBStore store;
-
-    public PostDBStoreTest() {
-        store = new PostDBStore(new Main().loadPool(), new CityService());
-    }
 
     @Test
     void whenCreatePost() {
+        PostDBStore store = new PostDBStore(new Main().loadPool(), new CityService());
         Post post = new Post(0, "Junior Java Job", "great job",
                 LocalDate.of(2022, Month.JANUARY, 1),
                 null, false, new City(1, "Москва"));
@@ -34,6 +30,7 @@ class PostDBStoreTest {
 
     @Test
     void whenUpdatePost() {
+        PostDBStore store = new PostDBStore(new Main().loadPool(), new CityService());
         Post post1 = new Post(0, "Junior Java Job", "great job",
                 LocalDate.of(2022, Month.JANUARY, 1),
                 null, false, new City(1, "Москва"));

@@ -1,9 +1,6 @@
 package ru.job4j.dreamjob.store;
 
-import org.apache.commons.dbcp2.BasicDataSource;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import ru.job4j.dreamjob.Main;
 import ru.job4j.dreamjob.model.Candidate;
 
