@@ -1,7 +1,9 @@
 package ru.job4j.dreamjob.store;
 
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import ru.job4j.dreamjob.Main;
 import ru.job4j.dreamjob.model.Candidate;
 
@@ -11,15 +13,18 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class CandidateDbStoreTest {
 
+/*
     private CandidateDbStore store;
 
     @BeforeEach
     void initObjects() {
         store = new CandidateDbStore(new Main().loadPool());
     }
+*/
 
     @Test
     void whenCreateCandidate() {
+        CandidateDbStore store = new CandidateDbStore(new Main().loadPool());
         Candidate candidate = new Candidate(1, "Ivan", "clever",
                 LocalDate.now(), "DATA".getBytes());
         store.add(candidate);
@@ -32,6 +37,7 @@ class CandidateDbStoreTest {
 
     @Test
     void whenUpdateCandidate() {
+        CandidateDbStore store = new CandidateDbStore(new Main().loadPool());
         Candidate candidate = new Candidate(1, "Ivan", "clever",
                 LocalDate.now(), "DATA".getBytes());
         int addedCandidateId = store.add(candidate).getId();
