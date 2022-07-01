@@ -11,7 +11,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class CandidateDbStoreTest {
 
-/*    private CandidateDbStore store;
+    private CandidateDbStore store;
 
     @BeforeEach
     void initObjects() {
@@ -43,5 +43,5 @@ class CandidateDbStoreTest {
         assertThat(candiateInDb.getDescription()).isEqualTo(candidate2.getDescription());
         assertThat(candiateInDb.getCreated()).isEqualTo(candidate2.getCreated());
         assertThat(candiateInDb.getPhoto()).isEqualTo(candidate2.getPhoto());
-    }*/
+    }
 }
