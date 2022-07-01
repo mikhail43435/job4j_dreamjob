@@ -13,15 +13,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class CandidateDbStoreTest {
 
-/*
-    private CandidateDbStore store;
-
-    @BeforeEach
-    void initObjects() {
-        store = new CandidateDbStore(new Main().loadPool());
-    }
-*/
-
     @Test
     void whenCreateCandidate() {
         CandidateDbStore store = new CandidateDbStore(new Main().loadPool());
